@@ -18,11 +18,17 @@ function addRow(tableID) {
   
     let newRow = tableRef.insertRow(-1);
   
-    let newCell = newRow.insertCell(0);
+    let cell1 = newRow.insertCell(0);
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);
-    let cell4 = newRow.insertCell(3);     
-  }
+    let cell4 = newRow.insertCell(3);
+    
+    
+    cell1.innerText = input.value
+    cell2.innerText = Math.floor(Math.random(1) * 91);
+    cell3.innerText = 'USA'
+}
+
 
 button.addEventListener('click', ()=> {
 
