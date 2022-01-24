@@ -12,6 +12,7 @@ const names = document.querySelectorAll('.name')
 const age = document.querySelector('.age')
 const country = document.querySelector('.country')
 const voted = document.querySelectorAll('.voted')
+let table = document.getElementById("myTable");
 
 
 function addRow(tableID) {
@@ -28,9 +29,8 @@ function addRow(tableID) {
         cell2.innerText = Math.floor(Math.random() * (91-18) ) + 18;
         cell3.innerText = 'USA'
         cell4.className += 'voted'
-        cell4.innerText = 1
+        cell4.innerText = 1 
 }
-
 
 function increase () {
 
@@ -43,16 +43,48 @@ function increase () {
             voted[i].innerText++}
            
         }
+
+       addRow('myTable');
     }
+
+    function sortTable() {
+        var rows, switching, i, x, y, shouldSwitch;
+        switching = true;
+
+        while (switching) {
+        
+          switching = false;
+          rows = table.rows;
+          
+          for (i = 1; i < (rows.length - 1); i++) {
+           
+            shouldSwitch = false;
+            
+            x = rows[i].getElementsByTagName("TD")[3];
+           
+            y = rows[i + 1].getElementsByTagName("TD")[3];
+           
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            
+              shouldSwitch = true;
+              break;
+            }
+          }
+          if (shouldSwitch) {
+         
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+          }
+          debugger
+        }
+      }
 
 form.addEventListener('submit', (event)=> {
 
     event.preventDefault()
 
-        addRow('myTable');
         increase ();
-    
-    
+        sortTable()
 
 })
 
