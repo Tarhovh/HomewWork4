@@ -4,38 +4,57 @@
 
 // Կիսատ է ցավոք, բայց խոստանում եմ մոտ ապագայում ավարտել
 
-
+const form = document.querySelector('form')
 const input = document.querySelector('input')
-const button = document.querySelector('input[type=button]')
-const name = document.querySelector('.name')
+const button = document.querySelector('input[type=submit]')
+const nameInput = document.querySelector('input[type=text]');
+const names = document.querySelectorAll('.name')
 const age = document.querySelector('.age')
 const country = document.querySelector('.country')
-const voted = document.querySelector('.voted')
+const voted = document.querySelectorAll('.voted')
 
 
 function addRow(tableID) {
-    let tableRef = document.getElementById(tableID);
-  
-    let newRow = tableRef.insertRow(-1);
-  
-    let cell1 = newRow.insertCell(0);
-    let cell2 = newRow.insertCell(1);
-    let cell3 = newRow.insertCell(2);
-    let cell4 = newRow.insertCell(3);
+
+        let tableRef = document.getElementById(tableID);
+        let newRow = tableRef.insertRow(5);
     
+        let cell1 = newRow.insertCell(0);
+        let cell2 = newRow.insertCell(1);
+        let cell3 = newRow.insertCell(2);
+        let cell4 = newRow.insertCell(3);
     
-    cell1.innerText = input.value
-    cell2.innerText = Math.floor(Math.random(1) * 91);
-    cell3.innerText = 'USA'
+        cell1.innerText = nameInput.value
+        cell2.innerText = Math.floor(Math.random() * (91-18) ) + 18;
+        cell3.innerText = 'USA'
+        cell4.className += 'voted'
+        cell4.innerText = 1
 }
 
 
-button.addEventListener('click', ()=> {
+function increase () {
 
-    if (input.value !== "") {
-        addRow('myTable');
+
+    for (i=0; i<names.length; i++)
+    for (i=0; i<voted.length; i++)
+
+        if (nameInput.value === names[i].innerText === true) {
+            {
+            voted[i].innerText++}
+           
+        }
     }
-   
 
-    else alert('vote for someone please')
+form.addEventListener('submit', (event)=> {
+
+    event.preventDefault()
+
+        addRow('myTable');
+        increase ();
+    
+    
+
 })
+
+
+

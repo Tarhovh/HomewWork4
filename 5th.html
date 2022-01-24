@@ -18,9 +18,9 @@
     <div class="formDiv">
     <form action="">
         <label for="name">Candidate Name</label><br>
-        <input type="text">
+        <input type="text" required pattern="^[a-zA-Z' '']+$">
 
-       <input type="button" value="Vote">
+       <input type="submit" value="Vote">
 
     </form>
 </div>
@@ -28,36 +28,36 @@
 <div class="tableDiv">
     <table id="myTable">
         <thead>
-            <th class="name">Name</th>
-            <th class="age">Age</th>
-            <th class="country">Country</th>
-            <th class="voted">Votes</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Votes</th>
         </thead>
 
        
         <tbody>
             <tr class = "cell">
-                <td>Obama</td>
+                <td class="name">Obama</td>
                 <td>60</td>
                 <td>USA</td>
                 <td class="voted">1</td>
             </tr>
             <tr>
-                <td>Biden</td>
+                <td class="name">Biden</td>
                 <td>75</td>
                 <td>USA</td>
                 <td class="voted">1</td>
             </tr>
             <tr>
-                <td>Bush</td>
+                <td class="name">Bush</td>
                 <td>75</td>
                 <td>USA</td>
                 <td class="voted">1</td>
             </tr>
             <tr>
-                <td>Clinton</td>
+                <td class="name">Clinton</td>
                 <td class="age">80</td>
-                <td class="age">USA</td>
+                <td class="country">USA</td>
                 <td class="voted">1</td>
             </tr>
         </tbody>
