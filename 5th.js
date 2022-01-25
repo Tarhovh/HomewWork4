@@ -17,7 +17,6 @@ const tbody = document.querySelector('tbody')
 let rows = document.getElementById("myTable").rows
 
 
-
 function addRow(tableID) {
 
         let tableRef = document.getElementById(tableID);
@@ -38,7 +37,7 @@ function addRow(tableID) {
 
 function increase () {
 
-    for (i=0; i<rows.length; i++)
+    for (i=1; i<rows.length; i++)
     if (nameInput.value === rows[i].cells[0].innerText) {
     
         rows[i].cells[3].innerText++
@@ -83,7 +82,6 @@ form.addEventListener('submit', (event)=> {
 
     increase ()
     sortTable()
-    
     
     if ((tbody.innerText.includes(nameInput.value)=== false)) {
      addRow('myTable');
