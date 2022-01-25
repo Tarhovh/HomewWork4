@@ -2,7 +2,7 @@
 //If a user enters a name which is already in the list, the app should increment the votes of the current candidate.
 //* Every time when candidates votes are changed, the app should arrange their position in the table based on the votes quantity.
 
-// Կիսատ է ցավոք, բայց խոստանում եմ մոտ ապագայում ավարտել
+// Կարծում եմ հիմնականում ավարտեցի, բացի մի պահից, որը կուզեի փոխել
 
 const form = document.querySelector('form')
 const input = document.querySelector('input')
@@ -13,39 +13,37 @@ const age = document.querySelector('.age')
 const country = document.querySelector('.country')
 const voted = document.querySelectorAll('.voted')
 let table = document.getElementById("myTable");
+const tbody = document.querySelector('tbody')
+let rows = document.getElementById("myTable").rows
+
 
 
 function addRow(tableID) {
 
         let tableRef = document.getElementById(tableID);
-        let newRow = tableRef.insertRow(5);
+        let newRow = tableRef.insertRow(-1);
     
         let cell1 = newRow.insertCell(0);
         let cell2 = newRow.insertCell(1);
         let cell3 = newRow.insertCell(2);
         let cell4 = newRow.insertCell(3);
     
+        cell1.className += 'name'
         cell1.innerText = nameInput.value
         cell2.innerText = Math.floor(Math.random() * (91-18) ) + 18;
         cell3.innerText = 'USA'
         cell4.className += 'voted'
-        cell4.innerText = 1 
+        cell4.innerText = 1
 }
 
 function increase () {
 
-
-    for (i=0; i<names.length; i++)
-    for (i=0; i<voted.length; i++)
-
-        if (nameInput.value === names[i].innerText === true) {
-            {
-            voted[i].innerText++}
-           
-        }
-
-       addRow('myTable');
-    }
+    for (i=0; i<rows.length; i++)
+    if (nameInput.value === rows[i].cells[0].innerText) {
+    
+        rows[i].cells[3].innerText++
+}
+}
 
     function sortTable() {
         var rows, switching, i, x, y, shouldSwitch;
@@ -75,18 +73,21 @@ function increase () {
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
           }
-          debugger
         }
       }
+
 
 form.addEventListener('submit', (event)=> {
 
     event.preventDefault()
 
-        increase ();
-        sortTable()
-
+    increase ()
+    sortTable()
+    
+    
+    if ((tbody.innerText.includes(nameInput.value)=== false)) {
+     addRow('myTable');
+    }
 })
-
 
 
