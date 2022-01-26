@@ -23,6 +23,9 @@ let rows = document.getElementById("myTable").rows
 
 function addRow(tableID) {
 
+  // for (i=1; i<rows.length; i++)
+  //   if ((nameInput.value === rows[i].cells[0].innerText)=== false) {
+
         let tableRef = document.getElementById(tableID);
         let newRow = tableRef.insertRow(-1);
     
@@ -37,6 +40,7 @@ function addRow(tableID) {
         cell3.innerText = 'USA'
         cell4.className += 'voted'
         cell4.innerText = 1
+    // }
 }
 
 function increase () {
@@ -78,7 +82,6 @@ function increase () {
           }
         }
       }
-
 
 form.addEventListener('submit', (event)=> {
 

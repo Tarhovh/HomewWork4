@@ -17,11 +17,11 @@
 }
 
 .formDiv {
-display: flex;
-justify-content: start;
-margin-left: 10px;
-color: blueviolet;
-font-weight: bolder;
+    display: flex;
+    justify-content: start;
+    margin-left: 10px;
+    color: blueviolet;
+    font-weight: bolder;
 
 } 
 
